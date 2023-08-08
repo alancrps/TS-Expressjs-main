@@ -30,11 +30,17 @@ app.get("/usuarios/:usuarioId", (req: Request, res: Response) => {
 		},
 	];
 
-	const u = usuarios.map((u) => {
-		if (u.id == req.params.usuarioId) {
+	const u = usuarios.filter((u) => {
+		if (u.id === req.params.usuarioId) {
 			return u;
 		}
 	});
+
+	// const u = usuarios.map((u) => {
+	// 	if (u.id == req.params.usuarioId) {
+	// 		return u;
+	// 	}
+	// });
 
 	if (u.length <= 0) {
 		res.status(404).json({
