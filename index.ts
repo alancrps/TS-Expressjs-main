@@ -10,7 +10,7 @@ app.listen(1000, () => {
 	console.log(`⚡️ SERVER API IS RUNNING http://localhost:1000`);
 });
 
-app.get("/usuarios/:usuarioId", (req: Request, res: Request) => {
+app.get("/usuarios/:usuarioId", (req: Request, res: Response) => {
 	const usuarios: Array<any> = [
 		{
 			id: 1,
@@ -29,10 +29,6 @@ app.get("/usuarios/:usuarioId", (req: Request, res: Request) => {
 			activo: false,
 		},
 	];
-
-	// const u = usuarios.filter((u) => {
-	// 	return u.id === req.params.usuarioId;
-	// });
 
 	const u = usuarios.map((u) => {
 		if (u.id == req.params.usuarioId) {
